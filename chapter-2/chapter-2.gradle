@@ -1,0 +1,29 @@
+//import org.springframework.boot.gradle.plugin.SpringBootPlugin
+description 'Chapter 02: Hello World!'
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework:spring-context'
+}
+
+
+tasks.register('fatJar' , Jar){
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    manifest {
+        attributes("Main-Class" : "two.spring.HelloWorldSpringAnnotated",
+                    "Created-By" : "Mukul Acharya",
+                    "Specifications-Title" : "Pro Spring 6 - Chapter 2 ")
+    }
+    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('fatJar')
+}

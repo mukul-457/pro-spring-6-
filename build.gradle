@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2" }
+        maven { url "https://repo.spring.io/release" }
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/libs-milestone-local" }
+    }
+
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:1.1.1'
+        //classpath 'org.springframework.boot:spring-boot-gradle-plugin:3.1.1'
+    }
+}
+
+ext {
+    slf4jVersion = "2.0.7"
+    logbackVersion = "1.4.8"
+}
+
+configure(allprojects) { project ->
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2" }
+        maven { url "https://repo.spring.io/release" }
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/libs-milestone" }
+    }
+
+    version  '1.0-SNAPSHOT'
+
+    compileJava {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+
+test {
+    useJUnitPlatform()
+}
