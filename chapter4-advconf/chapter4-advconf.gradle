@@ -1,0 +1,29 @@
+description "Chapter 4: Advanced Spring Configuration"
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework:spring-context'
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
+    implementation "jakarta.annotation:jakarta.annotation-api:$jakartaAnnotationVersion"
+}
+
+tasks.register('fatJar', Jar){
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    manifest {
+        attributes("Main-Class" : "examples.spring.four.initializingInterface.InitializingBeanDemo",
+                "Created-By" : "Mukul Acharya",
+                "Specifications-Title" : "Pro Spring 6 - Chapter 4 ")
+    }
+    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('fatJar')
+}
