@@ -11,6 +11,11 @@ dependencies {
     implementation "org.slf4j:slf4j-api:$slf4jVersion"
     implementation "ch.qos.logback:logback-classic:$logbackVersion"
     implementation "jakarta.annotation:jakarta.annotation-api:$jakartaAnnotationVersion"
+    implementation project(":chapter-2")
+
+    testImplementation 'org.springframework:spring-test'
+    testImplementation "org.mockito:mockito-all:$mockitoVersion"
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine'
 }
 
 tasks.register('fatJar', Jar){

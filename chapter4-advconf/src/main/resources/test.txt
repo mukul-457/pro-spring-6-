@@ -1,0 +1,1 @@
+class path data=Hello from classpath
