@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+dependencies {
+    implementation project(":chapter-2")
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootJar {
+    manifest {
+        attributes 'Start-Class': 'spring.examples.four.Chapter4BootApplication'
+    }
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('bootJar')
+}
+
+tasks.named('compileJava') {
+    dependsOn ':chapter-2:fatJar'
+}
+
+tasks.named('jar') {
+    enabled = false
+}

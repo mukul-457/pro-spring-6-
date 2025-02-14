@@ -13,9 +13,11 @@ pluginManagement {
 }
 
 rootProject.name = 'pro-spring-6'
+
 include 'chapter-2'
 include 'chapter3-ioc'
 include 'chapter4-advconf'
+include 'chapter4-boot'
 
 rootProject.children.each { project ->
     project.buildFileName = "${project.name}.gradle"

@@ -21,7 +21,7 @@ dependencies {
 tasks.register('fatJar', Jar){
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     manifest {
-        attributes("Main-Class" : "examples.spring.four.initializingInterface.InitializingBeanDemo",
+        attributes("Main-Class" : "examples.spring.four.profiles.ProfileDemo",
                 "Created-By" : "Mukul Acharya",
                 "Specifications-Title" : "Pro Spring 6 - Chapter 4 ")
     }
@@ -31,4 +31,7 @@ tasks.register('fatJar', Jar){
 
 tasks.named('build') {
     dependsOn tasks.named('fatJar')
+}
+tasks.named('compileJava') {
+    dependsOn ':chapter-2:fatJar'
 }
