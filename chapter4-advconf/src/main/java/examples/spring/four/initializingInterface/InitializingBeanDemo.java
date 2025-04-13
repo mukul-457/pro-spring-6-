@@ -29,8 +29,7 @@ public class InitializingBeanDemo {
                 logger.error("An error occurred in bean configuration: " + b.getMessage());
                 return null;
             }
-        }        
-
+        }
 }
 
 @Configuration

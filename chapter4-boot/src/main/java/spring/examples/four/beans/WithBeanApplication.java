@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import two.decoupled.MessageProvider;
 import two.decoupled.MessageRenderer;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "spring.examples.four.beans")
 public class WithBeanApplication {
     private static Logger logger = LoggerFactory.getLogger(WithBeanApplication.class);
 

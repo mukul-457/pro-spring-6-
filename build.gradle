@@ -23,6 +23,7 @@ ext {
     jakartaAnnotationVersion = "2.1.0"
     lang3Version = "3.12.0"
     mockitoVersion = "2.0.2-beta"
+    aspectjVersion = "1.9.9.1"
 }
 
 configure(allprojects) { project ->
@@ -58,4 +59,8 @@ configure(allprojects) { project ->
 
 configure(bootProjects) { project ->
     apply plugin: 'org.springframework.boot'
+}
+
+tasks.withType(Wrapper).configureEach {
+    gradleVersion = '8.3-20230504222113+0000' //version required
 }

@@ -6,7 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import two.decoupled.MessageProvider;
 import two.decoupled.MessageRenderer;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest

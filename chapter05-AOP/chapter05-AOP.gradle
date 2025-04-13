@@ -1,10 +1,9 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
-description "Chapter 4: Advanced Spring Configuration"
+description "chapter 05: Spring AOP!"
 
 dependencyManagement {
     imports {
-        //mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
         mavenBom SpringBootPlugin.BOM_COORDINATES
     }
 }
@@ -14,19 +13,21 @@ dependencies {
     implementation "org.slf4j:slf4j-api:$slf4jVersion"
     implementation "ch.qos.logback:logback-classic:$logbackVersion"
     implementation "jakarta.annotation:jakarta.annotation-api:$jakartaAnnotationVersion"
-    implementation project(":chapter-2")
+    implementation "org.aspectj:aspectjweaver:$aspectjVersion"
+    implementation "org.aspectj:aspectjrt:$aspectjVersion"
 
     testImplementation 'org.springframework:spring-test'
     testImplementation "org.mockito:mockito-all:$mockitoVersion"
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
 }
 
-tasks.register('fatJar', Jar){
+tasks.register('fatJar', Jar) {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    /*  Gradle Fat jars with multiple dependencies are affected by the same bug: https://issues.apache.org/jira/browse/MASSEMBLY-360 this statement fixes it */
     manifest {
-        attributes("Main-Class" : "examples.spring.four.profiles.ProfileDemo",
-                "Created-By" : "Mukul Acharya",
-                "Specifications-Title" : "Pro Spring 6 - Chapter 4 ")
+        attributes "Main-Class": "",
+                "Created-By": "Mukul Acharya",
+                "Specification-Title": "Pro Spring 6 - Chapter 5"
     }
     from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
@@ -34,7 +35,4 @@ tasks.register('fatJar', Jar){
 
 tasks.named('build') {
     dependsOn tasks.named('fatJar')
-}
-tasks.named('compileJava') {
-    dependsOn ':chapter-2:fatJar'
 }

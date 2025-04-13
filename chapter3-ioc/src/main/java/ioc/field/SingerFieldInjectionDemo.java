@@ -32,7 +32,7 @@ class Singer{
 class Inspiration{
 
     //existing value gets overridden
-    private String lyrics = "some song3 lyrics";
+    private String lyrics ;
 
     //Constructor gets preference over setter
     public Inspiration(@Value("some song1 lyrics") String lyrics){

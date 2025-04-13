@@ -29,7 +29,6 @@ class BeanNamingConfig{
     public MultiBean multiBeanFromMethod(){
         return new MultiBean();
     }
-
 }
 @Component
 class SimpleBean{

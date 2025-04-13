@@ -52,10 +52,10 @@ class ValueConfig{
 class Dependent2{
     private Dependent dp1;
     private Dependent dp2;
-    Dependent2(Dependent dp ){
-        System.out.println("constructor called 1 with dependent object");
-        this.dp1 = dp;
-    }
+//    Dependent2(Dependent dp ){
+//        System.out.println("constructor called 1 with dependent object");
+//        this.dp1 = dp;
+//    }
 
 
     Dependent2(Dependent dp1, Dependent dp2){
@@ -63,8 +63,8 @@ class Dependent2{
         this.dp1 = dp1;
         this.dp2 = dp2;
     }
-
 }
+
 @Component
 class Dependent{
     @Value("#{valueConfig.name.toUpperCase()}")

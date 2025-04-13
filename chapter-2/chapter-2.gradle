@@ -1,9 +1,10 @@
-//import org.springframework.boot.gradle.plugin.SpringBootPlugin
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
 description 'Chapter 02: Hello World!'
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
+        //mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
+        mavenBom SpringBootPlugin.BOM_COORDINATES
     }
 }
 

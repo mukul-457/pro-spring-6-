@@ -15,12 +15,13 @@ import two.decoupled.MessageRenderer;
 import java.util.Arrays;
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "spring.examples.four.runners")
 public class WithRunnersApplication {
+    private static Logger logger = LoggerFactory.getLogger(WithRunnersApplication.class);
     public static void main(String[] args) {
         var ctx = SpringApplication.run(WithRunnersApplication.class, args);
         System.out.println("Listing all beans in the context");
-        Arrays.stream(ctx.getBeanDefinitionNames()).forEach(System.out::println);
+        Arrays.stream(ctx.getBeanDefinitionNames()).forEach(logger::info);
     }
 }
 

@@ -1,8 +1,10 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
 description 'Chapter 3: IOC'
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
+        //mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
+        mavenBom SpringBootPlugin.BOM_COORDINATES
     }
 }
 

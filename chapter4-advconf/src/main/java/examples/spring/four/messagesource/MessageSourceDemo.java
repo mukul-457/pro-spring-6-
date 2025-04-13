@@ -6,7 +6,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
-
 import java.util.Locale;
 
 public class MessageSourceDemo {
@@ -22,8 +21,6 @@ public class MessageSourceDemo {
         logger.info(ctx.getMessage("nameMsg", new Object[]{ "Mukul", "Acharya" }, Locale.ENGLISH));
         logger.info(ctx.getMessage("nameMsg", new Object[]{ "Mukul", "Acharya" }, ukrainian));
         logger.info(ctx.getMessage("nameMsg",new Object[]{ "Mukul",  "Acharya" }, hindi));
-
-
     }
 }
 

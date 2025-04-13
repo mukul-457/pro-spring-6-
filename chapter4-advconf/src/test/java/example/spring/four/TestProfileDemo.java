@@ -34,6 +34,12 @@ class TestConfig{
     }
 }
 
+
+/*
+since test profile has been activated , the messageProvider defined in AllConfig
+will not be used , instead the messageProvider defined in TestConfig will be used
+as it is marked with @Profile(Test)
+ */
 @ActiveProfiles("test")
 @SpringJUnitConfig(classes = {AllConfig.class, TestConfig.class})
 public class TestProfileDemo {
