@@ -24,6 +24,11 @@ ext {
     lang3Version = "3.12.0"
     mockitoVersion = "2.0.2-beta"
     aspectjVersion = "1.9.9.1"
+    lombokVersion = "1.18.28"
+    mariadbClientVersion = "3.1.4"
+    dbcp2Version = "2.9.0"
+    h2Version = "2.3.232"
+    testcontainersVersion = "1.18.3"
 }
 
 configure(allprojects) { project ->

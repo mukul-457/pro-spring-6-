@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: "jdbc:tc:mariadb:11.1.2:///musicdb?TC_INITSCRIPT=testcontainer/create-schema.sql"
+
+logging:
+  pattern:
+    console: " %-5level: %class{0} - %msg%n"
+  level:
+    root: INFO
+    # org.springframework.boot: DEBUG
+    spring.examples.chapter06boot: DEBUG
